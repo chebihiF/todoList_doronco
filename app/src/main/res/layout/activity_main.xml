@@ -15,6 +15,7 @@
         android:text="ToDo List"
         android:gravity="center"
         android:fontFamily="cursive"
+
         />
 
     <LinearLayout

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -62,5 +63,18 @@ public class TaskDetails extends AppCompatActivity {
                 "Http request",
                 "locale storage"
         });
+    }
+
+    public void validate(View view) {
+        for(int i=0;i<taskDetails.getChildCount();i++){
+            LinearLayout layout = (LinearLayout) taskDetails.getChildAt(i);
+            CheckBox checkBox = (CheckBox) layout.getChildAt(0);
+            if(!checkBox.isChecked())
+                return;
+        }
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("validate",true);
+        intent.putExtra("title",title);
+        startActivity(intent);
     }
 }
